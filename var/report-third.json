@@ -1,0 +1,3753 @@
+{
+  "generatedAt": 1794638225370,
+  "ledgerPath": "/workspace/var/dispatch-ledger.ndjson",
+  "plan": {
+    "identity": "FieldArchive",
+    "globalConcurrency": 3,
+    "jobs": [
+      {
+        "id": "JOB-1",
+        "group": "large",
+        "priority": 0,
+        "url": "http://127.0.0.1:18081/observation/0"
+      },
+      {
+        "id": "JOB-2",
+        "group": "large",
+        "priority": 1,
+        "url": "http://127.0.0.1:18082/observation/1"
+      },
+      {
+        "id": "JOB-3",
+        "group": "large",
+        "priority": 2,
+        "url": "http://127.0.0.1:18081/observation/2"
+      },
+      {
+        "id": "JOB-4",
+        "group": "large",
+        "priority": 0,
+        "url": "http://127.0.0.1:18082/observation/3"
+      },
+      {
+        "id": "JOB-5",
+        "group": "large",
+        "priority": 1,
+        "url": "http://127.0.0.1:18081/observation/4"
+      },
+      {
+        "id": "JOB-6",
+        "group": "large",
+        "priority": 2,
+        "url": "http://127.0.0.1:18082/observation/5"
+      },
+      {
+        "id": "JOB-7",
+        "group": "large",
+        "priority": 0,
+        "url": "http://127.0.0.1:18081/observation/6"
+      },
+      {
+        "id": "JOB-8",
+        "group": "large",
+        "priority": 1,
+        "url": "http://127.0.0.1:18082/observation/7"
+      },
+      {
+        "id": "JOB-9",
+        "group": "large",
+        "priority": 2,
+        "url": "http://127.0.0.1:18081/observation/8"
+      },
+      {
+        "id": "JOB-10",
+        "group": "small",
+        "priority": 0,
+        "url": "http://127.0.0.1:18082/observation/9"
+      },
+      {
+        "id": "JOB-11",
+        "group": "small",
+        "priority": 1,
+        "url": "http://127.0.0.1:18081/observation/10"
+      },
+      {
+        "id": "JOB-12",
+        "group": "small",
+        "priority": 2,
+        "url": "http://127.0.0.1:18082/observation/11"
+      },
+      {
+        "id": "BLOCKED",
+        "group": "small",
+        "priority": 0,
+        "url": "http://127.0.0.1:18081/private/data"
+      },
+      {
+        "id": "ROBOTS-SAME",
+        "group": "small",
+        "priority": 1,
+        "url": "http://127.0.0.1:18081/same"
+      },
+      {
+        "id": "ROBOTS-PUBLIC",
+        "group": "small",
+        "priority": 1,
+        "url": "http://127.0.0.1:18081/private/public"
+      },
+      {
+        "id": "REDIRECT",
+        "group": "small",
+        "priority": 1,
+        "url": "http://127.0.0.1:18081/redirect"
+      }
+    ],
+    "hosts": [
+      {
+        "origin": "http://127.0.0.1:18081",
+        "concurrency": 2,
+        "minIntervalMs": 100,
+        "robotsFailure": "pause"
+      },
+      {
+        "origin": "http://127.0.0.1:18082",
+        "concurrency": 2,
+        "minIntervalMs": 100,
+        "robotsFailure": "pause"
+      }
+    ]
+  },
+  "fairness": {
+    "policy": "组内优先级 FIFO；组间轮转光标，每轮每组至多发起一次，轮次后光标前进",
+    "starvationBound": "存在 G 个有待办的组时，任一组至多等待 G 个轮次即可获得发起机会",
+    "dispatchOrder": [
+      "large",
+      "large",
+      "small",
+      "large",
+      "small",
+      "large",
+      "small",
+      "large",
+      "small",
+      "large",
+      "small",
+      "large",
+      "small",
+      "large",
+      "small",
+      "large",
+      "large",
+      "large",
+      "large",
+      "large",
+      "large",
+      "large",
+      "large",
+      "large",
+      "large"
+    ],
+    "maxConsecutiveSameGroup": 1,
+    "groups": [
+      {
+        "group": "large",
+        "enqueued": 33,
+        "dispatched": 18,
+        "results": 16,
+        "denied": 0
+      },
+      {
+        "group": "small",
+        "enqueued": 14,
+        "dispatched": 7,
+        "results": 6,
+        "denied": 1
+      }
+    ]
+  },
+  "attempts": [
+    {
+      "jobId": "JOB-4",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "attempt": 1,
+      "startedAt": 1794528000000,
+      "leaseId": "lease-1",
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 0,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": null
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      },
+      "endedAt": 1794528019913,
+      "endReason": "result-recorded",
+      "statusCode": 200,
+      "url": "http://127.0.0.1:18082/observation/3"
+    },
+    {
+      "jobId": "JOB-1",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "attempt": 1,
+      "startedAt": 1794528000000,
+      "leaseId": "lease-2",
+      "decision": "cooldown-retry",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 0,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": null
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      },
+      "endedAt": 1794528009950,
+      "endReason": "lease-released",
+      "statusCode": null,
+      "url": "http://127.0.0.1:18081/observation/0"
+    },
+    {
+      "jobId": "JOB-11",
+      "group": "small",
+      "origin": "http://127.0.0.1:18081",
+      "attempt": 1,
+      "startedAt": 1794528000100,
+      "leaseId": "lease-3",
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 1,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 1
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528000000
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      },
+      "endedAt": 1794528019913,
+      "endReason": "result-recorded",
+      "statusCode": 200,
+      "url": "http://127.0.0.1:18081/observation/10"
+    },
+    {
+      "jobId": "JOB-4",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "attempt": 1,
+      "startedAt": 1794528000100,
+      "leaseId": "lease-4",
+      "decision": "success",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 2,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528000000
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      },
+      "endedAt": 1794528019913,
+      "endReason": "lease-released",
+      "statusCode": null,
+      "url": "http://127.0.0.1:18082/observation/3"
+    },
+    {
+      "jobId": "ROBOTS-SAME",
+      "group": "small",
+      "origin": "http://127.0.0.1:18081",
+      "attempt": 1,
+      "startedAt": 1794528010063,
+      "leaseId": "lease-5",
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 2,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 1
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528000100
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "allow:/same"
+        }
+      },
+      "endedAt": 1794528019913,
+      "endReason": "result-recorded",
+      "statusCode": 200,
+      "url": "http://127.0.0.1:18081/same"
+    },
+    {
+      "jobId": "JOB-7",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "attempt": 1,
+      "startedAt": 1794528020163,
+      "leaseId": "lease-6",
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 0,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528010063
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      },
+      "endedAt": 1794528029863,
+      "endReason": "result-recorded",
+      "statusCode": 200,
+      "url": "http://127.0.0.1:18081/observation/6"
+    },
+    {
+      "jobId": "JOB-12",
+      "group": "small",
+      "origin": "http://127.0.0.1:18082",
+      "attempt": 1,
+      "startedAt": 1794528020163,
+      "leaseId": "lease-7",
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 1,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528000100
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      },
+      "endedAt": 1794528029863,
+      "endReason": "result-recorded",
+      "statusCode": 200,
+      "url": "http://127.0.0.1:18082/observation/11"
+    },
+    {
+      "jobId": "FLOOD-1",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "attempt": 1,
+      "startedAt": 1794528020263,
+      "leaseId": "lease-8",
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 2,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 1
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528020163
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      },
+      "endedAt": 1794528029863,
+      "endReason": "result-recorded",
+      "statusCode": 200,
+      "url": "http://127.0.0.1:18081/observation/f0"
+    },
+    {
+      "jobId": "JOB-10",
+      "group": "small",
+      "origin": "http://127.0.0.1:18082",
+      "attempt": 1,
+      "startedAt": 1794528030113,
+      "leaseId": "lease-9",
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 0,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528020163
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      },
+      "endedAt": 1794528049813,
+      "endReason": "result-recorded",
+      "statusCode": 200,
+      "url": "http://127.0.0.1:18082/observation/9"
+    },
+    {
+      "jobId": "FLOOD-3",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "attempt": 1,
+      "startedAt": 1794528030113,
+      "leaseId": "lease-10",
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 1,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528020263
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      },
+      "endedAt": 1794528049813,
+      "endReason": "result-recorded",
+      "statusCode": 200,
+      "url": "http://127.0.0.1:18081/observation/f2"
+    },
+    {
+      "jobId": "ROBOTS-PUBLIC",
+      "group": "small",
+      "origin": "http://127.0.0.1:18081",
+      "attempt": 1,
+      "startedAt": 1794528030213,
+      "leaseId": "lease-11",
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 2,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 1
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528030113
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "allow:/private/public"
+        }
+      },
+      "endedAt": 1794528049813,
+      "endReason": "result-recorded",
+      "statusCode": 200,
+      "url": "http://127.0.0.1:18081/private/public"
+    },
+    {
+      "jobId": "FLOOD-4",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "attempt": 1,
+      "startedAt": 1794528050063,
+      "leaseId": "lease-12",
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 0,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528030113
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      },
+      "endedAt": 1794528059763,
+      "endReason": "result-recorded",
+      "statusCode": 200,
+      "url": "http://127.0.0.1:18082/observation/f3"
+    },
+    {
+      "jobId": "REDIRECT",
+      "group": "small",
+      "origin": "http://127.0.0.1:18081",
+      "attempt": 1,
+      "startedAt": 1794528050063,
+      "leaseId": "lease-13",
+      "decision": "redirect",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 1,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528030213
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      },
+      "endedAt": 1794528059763,
+      "endReason": "lease-released",
+      "statusCode": null,
+      "url": "http://127.0.0.1:18081/redirect"
+    },
+    {
+      "jobId": "FLOOD-5",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "attempt": 1,
+      "startedAt": 1794528050163,
+      "leaseId": "lease-14",
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 2,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 1
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528050063
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      },
+      "endedAt": 1794528059763,
+      "endReason": "result-recorded",
+      "statusCode": 200,
+      "url": "http://127.0.0.1:18081/observation/f4"
+    },
+    {
+      "jobId": "REDIRECT",
+      "group": "small",
+      "origin": "http://127.0.0.1:18082",
+      "attempt": 2,
+      "startedAt": 1794528060013,
+      "leaseId": "lease-15",
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 0,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528050063
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      },
+      "endedAt": 1794528079713,
+      "endReason": "result-recorded",
+      "statusCode": 200,
+      "url": "http://127.0.0.1:18082/observation/9"
+    },
+    {
+      "jobId": "FLOOD-7",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "attempt": 1,
+      "startedAt": 1794528060013,
+      "leaseId": "lease-16",
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 1,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528050163
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      },
+      "endedAt": 1794528079713,
+      "endReason": "result-recorded",
+      "statusCode": 200,
+      "url": "http://127.0.0.1:18081/observation/f6"
+    },
+    {
+      "jobId": "JOB-1",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "attempt": 2,
+      "startedAt": 1794528060113,
+      "leaseId": "lease-17",
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 2,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 1
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528060013
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      },
+      "endedAt": 1794528079713,
+      "endReason": "result-recorded",
+      "statusCode": 200,
+      "url": "http://127.0.0.1:18081/observation/0"
+    },
+    {
+      "jobId": "JOB-2",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "attempt": 1,
+      "startedAt": 1794528079963,
+      "leaseId": "lease-18",
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 0,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528060013
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      },
+      "endedAt": 1794528099513,
+      "endReason": "result-recorded",
+      "statusCode": 200,
+      "url": "http://127.0.0.1:18082/observation/1"
+    },
+    {
+      "jobId": "JOB-5",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "attempt": 1,
+      "startedAt": 1794528080063,
+      "leaseId": "lease-19",
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 1,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528060113
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      },
+      "endedAt": 1794528099513,
+      "endReason": "result-recorded",
+      "statusCode": 200,
+      "url": "http://127.0.0.1:18081/observation/4"
+    },
+    {
+      "jobId": "JOB-8",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "attempt": 1,
+      "startedAt": 1794528080163,
+      "leaseId": "lease-20",
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 2,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 1
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528079963
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      },
+      "endedAt": 1794528099513,
+      "endReason": "result-recorded",
+      "statusCode": 200,
+      "url": "http://127.0.0.1:18082/observation/7"
+    },
+    {
+      "jobId": "JOB-3",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "attempt": 1,
+      "startedAt": 1794528099763,
+      "leaseId": "lease-21",
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 0,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528080063
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      },
+      "endedAt": 1794528119313,
+      "endReason": "result-recorded",
+      "statusCode": 200,
+      "url": "http://127.0.0.1:18081/observation/2"
+    },
+    {
+      "jobId": "JOB-6",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "attempt": 1,
+      "startedAt": 1794528099863,
+      "leaseId": "lease-22",
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 1,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528080163
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      },
+      "endedAt": 1794528119313,
+      "endReason": "result-recorded",
+      "statusCode": 200,
+      "url": "http://127.0.0.1:18082/observation/5"
+    },
+    {
+      "jobId": "JOB-9",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "attempt": 1,
+      "startedAt": 1794528099963,
+      "leaseId": "lease-23",
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 2,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 1
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528099763
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      },
+      "endedAt": 1794528119313,
+      "endReason": "result-recorded",
+      "statusCode": 200,
+      "url": "http://127.0.0.1:18081/observation/8"
+    },
+    {
+      "jobId": "FLOOD-2",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "attempt": 1,
+      "startedAt": 1794528119563,
+      "leaseId": "lease-24",
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 0,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528099863
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      },
+      "endedAt": 1794528119663,
+      "endReason": "result-recorded",
+      "statusCode": 200,
+      "url": "http://127.0.0.1:18082/observation/f1"
+    },
+    {
+      "jobId": "FLOOD-6",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "attempt": 1,
+      "startedAt": 1794528119663,
+      "leaseId": "lease-25",
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 1,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 1
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528119563
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      },
+      "endedAt": 1794528119663,
+      "endReason": "result-recorded",
+      "statusCode": 200,
+      "url": "http://127.0.0.1:18082/observation/f5"
+    }
+  ],
+  "denials": [
+    {
+      "jobId": "BLOCKED",
+      "group": "small",
+      "origin": "http://127.0.0.1:18081",
+      "url": "http://127.0.0.1:18081/private/data",
+      "at": 1794528000100,
+      "reason": "disallow:/private",
+      "rule": {
+        "action": "disallow",
+        "path": "/private"
+      },
+      "identity": "FieldArchive"
+    }
+  ],
+  "retries": [
+    {
+      "ts": 1794528000000,
+      "type": "lease-recovered",
+      "jobId": "JOB-4",
+      "group": "large",
+      "previousLeaseId": "lease-1",
+      "previousAttempt": 1,
+      "crashedAt": 1794528000000
+    },
+    {
+      "ts": 1794528009950,
+      "type": "retry-scheduled",
+      "jobId": "JOB-1",
+      "group": "large",
+      "attempt": 1,
+      "nextAttempt": 2,
+      "notBefore": 1794528010063,
+      "delayMs": 113,
+      "reason": "HTTP 429",
+      "statusCode": 429,
+      "leaseId": "lease-2"
+    },
+    {
+      "ts": 1794528059763,
+      "type": "redirect-requeued",
+      "jobId": "REDIRECT",
+      "group": "small",
+      "fromUrl": "http://127.0.0.1:18081/redirect",
+      "toUrl": "http://127.0.0.1:18082/observation/9",
+      "fromOrigin": "http://127.0.0.1:18081",
+      "toOrigin": "http://127.0.0.1:18082",
+      "hops": null
+    }
+  ],
+  "cooldowns": [
+    {
+      "origin": "http://127.0.0.1:18081",
+      "at": 1794528009950,
+      "until": 1794528002000,
+      "retryAfter": "Fri, 13 Nov 2026 00:00:02 GMT",
+      "kind": "http-date",
+      "reason": "HTTP 429 Retry-After",
+      "statusCode": 429,
+      "activeAtReport": false
+    }
+  ],
+  "results": [
+    {
+      "jobId": "JOB-4",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "finalUrl": "http://127.0.0.1:18082/observation/3",
+      "result": {
+        "host": "beta",
+        "path": "/observation/3",
+        "value": 7
+      },
+      "recordedAt": 1794528019913
+    },
+    {
+      "jobId": "JOB-11",
+      "group": "small",
+      "origin": "http://127.0.0.1:18081",
+      "finalUrl": "http://127.0.0.1:18081/observation/10",
+      "result": {
+        "host": "alpha",
+        "path": "/observation/10",
+        "value": 7
+      },
+      "recordedAt": 1794528019913
+    },
+    {
+      "jobId": "ROBOTS-SAME",
+      "group": "small",
+      "origin": "http://127.0.0.1:18081",
+      "finalUrl": "http://127.0.0.1:18081/same",
+      "result": {
+        "host": "alpha",
+        "path": "/same",
+        "value": 7
+      },
+      "recordedAt": 1794528019913
+    },
+    {
+      "jobId": "JOB-7",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "finalUrl": "http://127.0.0.1:18081/observation/6",
+      "result": {
+        "host": "alpha",
+        "path": "/observation/6",
+        "value": 7
+      },
+      "recordedAt": 1794528029863
+    },
+    {
+      "jobId": "JOB-12",
+      "group": "small",
+      "origin": "http://127.0.0.1:18082",
+      "finalUrl": "http://127.0.0.1:18082/observation/11",
+      "result": {
+        "host": "beta",
+        "path": "/observation/11",
+        "value": 7
+      },
+      "recordedAt": 1794528029863
+    },
+    {
+      "jobId": "FLOOD-1",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "finalUrl": "http://127.0.0.1:18081/observation/f0",
+      "result": {
+        "host": "alpha",
+        "path": "/observation/f0",
+        "value": 7
+      },
+      "recordedAt": 1794528029863
+    },
+    {
+      "jobId": "JOB-10",
+      "group": "small",
+      "origin": "http://127.0.0.1:18082",
+      "finalUrl": "http://127.0.0.1:18082/observation/9",
+      "result": {
+        "host": "beta",
+        "path": "/observation/9",
+        "value": 7
+      },
+      "recordedAt": 1794528049813
+    },
+    {
+      "jobId": "FLOOD-3",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "finalUrl": "http://127.0.0.1:18081/observation/f2",
+      "result": {
+        "host": "alpha",
+        "path": "/observation/f2",
+        "value": 7
+      },
+      "recordedAt": 1794528049813
+    },
+    {
+      "jobId": "ROBOTS-PUBLIC",
+      "group": "small",
+      "origin": "http://127.0.0.1:18081",
+      "finalUrl": "http://127.0.0.1:18081/private/public",
+      "result": {
+        "host": "alpha",
+        "path": "/private/public",
+        "value": 7
+      },
+      "recordedAt": 1794528049813
+    },
+    {
+      "jobId": "FLOOD-4",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "finalUrl": "http://127.0.0.1:18082/observation/f3",
+      "result": {
+        "host": "beta",
+        "path": "/observation/f3",
+        "value": 7
+      },
+      "recordedAt": 1794528059763
+    },
+    {
+      "jobId": "FLOOD-5",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "finalUrl": "http://127.0.0.1:18081/observation/f4",
+      "result": {
+        "host": "alpha",
+        "path": "/observation/f4",
+        "value": 7
+      },
+      "recordedAt": 1794528059763
+    },
+    {
+      "jobId": "REDIRECT",
+      "group": "small",
+      "origin": "http://127.0.0.1:18082",
+      "finalUrl": "http://127.0.0.1:18082/observation/9",
+      "result": {
+        "host": "beta",
+        "path": "/observation/9",
+        "value": 7
+      },
+      "recordedAt": 1794528079713
+    },
+    {
+      "jobId": "FLOOD-7",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "finalUrl": "http://127.0.0.1:18081/observation/f6",
+      "result": {
+        "host": "alpha",
+        "path": "/observation/f6",
+        "value": 7
+      },
+      "recordedAt": 1794528079713
+    },
+    {
+      "jobId": "JOB-1",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "finalUrl": "http://127.0.0.1:18081/observation/0",
+      "result": {
+        "host": "alpha",
+        "path": "/observation/0",
+        "value": 7
+      },
+      "recordedAt": 1794528079713
+    },
+    {
+      "jobId": "JOB-8",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "finalUrl": "http://127.0.0.1:18082/observation/7",
+      "result": {
+        "host": "beta",
+        "path": "/observation/7",
+        "value": 7
+      },
+      "recordedAt": 1794528099513
+    },
+    {
+      "jobId": "JOB-2",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "finalUrl": "http://127.0.0.1:18082/observation/1",
+      "result": {
+        "host": "beta",
+        "path": "/observation/1",
+        "value": 7
+      },
+      "recordedAt": 1794528099513
+    },
+    {
+      "jobId": "JOB-5",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "finalUrl": "http://127.0.0.1:18081/observation/4",
+      "result": {
+        "host": "alpha",
+        "path": "/observation/4",
+        "value": 7
+      },
+      "recordedAt": 1794528099513
+    },
+    {
+      "jobId": "JOB-3",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "finalUrl": "http://127.0.0.1:18081/observation/2",
+      "result": {
+        "host": "alpha",
+        "path": "/observation/2",
+        "value": 7
+      },
+      "recordedAt": 1794528119313
+    },
+    {
+      "jobId": "JOB-6",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "finalUrl": "http://127.0.0.1:18082/observation/5",
+      "result": {
+        "host": "beta",
+        "path": "/observation/5",
+        "value": 7
+      },
+      "recordedAt": 1794528119313
+    },
+    {
+      "jobId": "JOB-9",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "finalUrl": "http://127.0.0.1:18081/observation/8",
+      "result": {
+        "host": "alpha",
+        "path": "/observation/8",
+        "value": 7
+      },
+      "recordedAt": 1794528119313
+    },
+    {
+      "jobId": "FLOOD-2",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "finalUrl": "http://127.0.0.1:18082/observation/f1",
+      "result": {
+        "host": "beta",
+        "path": "/observation/f1",
+        "value": 7
+      },
+      "recordedAt": 1794528119663
+    },
+    {
+      "jobId": "FLOOD-6",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "finalUrl": "http://127.0.0.1:18082/observation/f5",
+      "result": {
+        "host": "beta",
+        "path": "/observation/f5",
+        "value": 7
+      },
+      "recordedAt": 1794528119663
+    }
+  ],
+  "leases": [
+    {
+      "leaseId": "lease-1",
+      "jobId": "JOB-4",
+      "attempt": 1,
+      "origin": "http://127.0.0.1:18082",
+      "group": "large",
+      "acquiredAt": 1794528000000,
+      "releasedAt": null
+    },
+    {
+      "leaseId": "lease-2",
+      "jobId": "JOB-1",
+      "attempt": 1,
+      "origin": "http://127.0.0.1:18081",
+      "group": "large",
+      "acquiredAt": 1794528000000,
+      "releasedAt": 1794528009950
+    },
+    {
+      "leaseId": "lease-3",
+      "jobId": "JOB-11",
+      "attempt": 1,
+      "origin": "http://127.0.0.1:18081",
+      "group": "small",
+      "acquiredAt": 1794528000100,
+      "releasedAt": 1794528019913
+    },
+    {
+      "leaseId": "lease-4",
+      "jobId": "JOB-4",
+      "attempt": 1,
+      "origin": "http://127.0.0.1:18082",
+      "group": "large",
+      "acquiredAt": 1794528000100,
+      "releasedAt": 1794528019913
+    },
+    {
+      "leaseId": "lease-5",
+      "jobId": "ROBOTS-SAME",
+      "attempt": 1,
+      "origin": "http://127.0.0.1:18081",
+      "group": "small",
+      "acquiredAt": 1794528010063,
+      "releasedAt": 1794528019913
+    },
+    {
+      "leaseId": "lease-6",
+      "jobId": "JOB-7",
+      "attempt": 1,
+      "origin": "http://127.0.0.1:18081",
+      "group": "large",
+      "acquiredAt": 1794528020163,
+      "releasedAt": 1794528029863
+    },
+    {
+      "leaseId": "lease-7",
+      "jobId": "JOB-12",
+      "attempt": 1,
+      "origin": "http://127.0.0.1:18082",
+      "group": "small",
+      "acquiredAt": 1794528020163,
+      "releasedAt": 1794528029863
+    },
+    {
+      "leaseId": "lease-8",
+      "jobId": "FLOOD-1",
+      "attempt": 1,
+      "origin": "http://127.0.0.1:18081",
+      "group": "large",
+      "acquiredAt": 1794528020263,
+      "releasedAt": 1794528029863
+    },
+    {
+      "leaseId": "lease-9",
+      "jobId": "JOB-10",
+      "attempt": 1,
+      "origin": "http://127.0.0.1:18082",
+      "group": "small",
+      "acquiredAt": 1794528030113,
+      "releasedAt": 1794528049813
+    },
+    {
+      "leaseId": "lease-10",
+      "jobId": "FLOOD-3",
+      "attempt": 1,
+      "origin": "http://127.0.0.1:18081",
+      "group": "large",
+      "acquiredAt": 1794528030113,
+      "releasedAt": 1794528049813
+    },
+    {
+      "leaseId": "lease-11",
+      "jobId": "ROBOTS-PUBLIC",
+      "attempt": 1,
+      "origin": "http://127.0.0.1:18081",
+      "group": "small",
+      "acquiredAt": 1794528030213,
+      "releasedAt": 1794528049813
+    },
+    {
+      "leaseId": "lease-12",
+      "jobId": "FLOOD-4",
+      "attempt": 1,
+      "origin": "http://127.0.0.1:18082",
+      "group": "large",
+      "acquiredAt": 1794528050063,
+      "releasedAt": 1794528059763
+    },
+    {
+      "leaseId": "lease-13",
+      "jobId": "REDIRECT",
+      "attempt": 1,
+      "origin": "http://127.0.0.1:18081",
+      "group": "small",
+      "acquiredAt": 1794528050063,
+      "releasedAt": 1794528059763
+    },
+    {
+      "leaseId": "lease-14",
+      "jobId": "FLOOD-5",
+      "attempt": 1,
+      "origin": "http://127.0.0.1:18081",
+      "group": "large",
+      "acquiredAt": 1794528050163,
+      "releasedAt": 1794528059763
+    },
+    {
+      "leaseId": "lease-15",
+      "jobId": "REDIRECT",
+      "attempt": 2,
+      "origin": "http://127.0.0.1:18082",
+      "group": "small",
+      "acquiredAt": 1794528060013,
+      "releasedAt": 1794528079713
+    },
+    {
+      "leaseId": "lease-16",
+      "jobId": "FLOOD-7",
+      "attempt": 1,
+      "origin": "http://127.0.0.1:18081",
+      "group": "large",
+      "acquiredAt": 1794528060013,
+      "releasedAt": 1794528079713
+    },
+    {
+      "leaseId": "lease-17",
+      "jobId": "JOB-1",
+      "attempt": 2,
+      "origin": "http://127.0.0.1:18081",
+      "group": "large",
+      "acquiredAt": 1794528060113,
+      "releasedAt": 1794528079713
+    },
+    {
+      "leaseId": "lease-18",
+      "jobId": "JOB-2",
+      "attempt": 1,
+      "origin": "http://127.0.0.1:18082",
+      "group": "large",
+      "acquiredAt": 1794528079963,
+      "releasedAt": 1794528099513
+    },
+    {
+      "leaseId": "lease-19",
+      "jobId": "JOB-5",
+      "attempt": 1,
+      "origin": "http://127.0.0.1:18081",
+      "group": "large",
+      "acquiredAt": 1794528080063,
+      "releasedAt": 1794528099513
+    },
+    {
+      "leaseId": "lease-20",
+      "jobId": "JOB-8",
+      "attempt": 1,
+      "origin": "http://127.0.0.1:18082",
+      "group": "large",
+      "acquiredAt": 1794528080163,
+      "releasedAt": 1794528099513
+    },
+    {
+      "leaseId": "lease-21",
+      "jobId": "JOB-3",
+      "attempt": 1,
+      "origin": "http://127.0.0.1:18081",
+      "group": "large",
+      "acquiredAt": 1794528099763,
+      "releasedAt": 1794528119313
+    },
+    {
+      "leaseId": "lease-22",
+      "jobId": "JOB-6",
+      "attempt": 1,
+      "origin": "http://127.0.0.1:18082",
+      "group": "large",
+      "acquiredAt": 1794528099863,
+      "releasedAt": 1794528119313
+    },
+    {
+      "leaseId": "lease-23",
+      "jobId": "JOB-9",
+      "attempt": 1,
+      "origin": "http://127.0.0.1:18081",
+      "group": "large",
+      "acquiredAt": 1794528099963,
+      "releasedAt": 1794528119313
+    },
+    {
+      "leaseId": "lease-24",
+      "jobId": "FLOOD-2",
+      "attempt": 1,
+      "origin": "http://127.0.0.1:18082",
+      "group": "large",
+      "acquiredAt": 1794528119563,
+      "releasedAt": 1794528119663
+    },
+    {
+      "leaseId": "lease-25",
+      "jobId": "FLOOD-6",
+      "attempt": 1,
+      "origin": "http://127.0.0.1:18082",
+      "group": "large",
+      "acquiredAt": 1794528119663,
+      "releasedAt": 1794528119663
+    }
+  ],
+  "snapshot": {
+    "paused": false,
+    "identity": "FieldArchive",
+    "global": {
+      "concurrency": 3,
+      "inflight": 0,
+      "minIntervalMs": 0
+    },
+    "queued": [],
+    "hosts": [
+      {
+        "origin": "http://127.0.0.1:18081",
+        "concurrencyLimit": 2,
+        "minIntervalMs": 100,
+        "robotsFailurePolicy": "pause",
+        "inflight": 0,
+        "lastDispatchAt": 1794528119663,
+        "cooldownUntil": null,
+        "cooldownReason": null,
+        "robotsStatus": "ready"
+      },
+      {
+        "origin": "http://127.0.0.1:18082",
+        "concurrencyLimit": 2,
+        "minIntervalMs": 100,
+        "robotsFailurePolicy": "pause",
+        "inflight": 0,
+        "lastDispatchAt": 1794528119663,
+        "cooldownUntil": null,
+        "cooldownReason": null,
+        "robotsStatus": "ready"
+      }
+    ],
+    "jobs": []
+  },
+  "rawEvents": [
+    {
+      "ts": 1794528000000,
+      "type": "plan-loaded",
+      "identity": "FieldArchive",
+      "globalConcurrency": 3,
+      "hostCount": 2,
+      "jobCount": 24
+    },
+    {
+      "ts": 1794528000000,
+      "type": "robots-fetch-started",
+      "origin": "http://127.0.0.1:18081",
+      "identity": "FieldArchive"
+    },
+    {
+      "ts": 1794528000000,
+      "type": "robots-fetch-started",
+      "origin": "http://127.0.0.1:18082",
+      "identity": "FieldArchive"
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "JOB-1",
+        "group": "large",
+        "priority": 0,
+        "url": "http://127.0.0.1:18081/observation/0",
+        "redirects": 0
+      },
+      "recovered": false
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "JOB-2",
+        "group": "large",
+        "priority": 1,
+        "url": "http://127.0.0.1:18082/observation/1",
+        "redirects": 0
+      },
+      "recovered": false
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "JOB-3",
+        "group": "large",
+        "priority": 2,
+        "url": "http://127.0.0.1:18081/observation/2",
+        "redirects": 0
+      },
+      "recovered": false
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "JOB-4",
+        "group": "large",
+        "priority": 0,
+        "url": "http://127.0.0.1:18082/observation/3",
+        "redirects": 0
+      },
+      "recovered": false
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "JOB-5",
+        "group": "large",
+        "priority": 1,
+        "url": "http://127.0.0.1:18081/observation/4",
+        "redirects": 0
+      },
+      "recovered": false
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "JOB-6",
+        "group": "large",
+        "priority": 2,
+        "url": "http://127.0.0.1:18082/observation/5",
+        "redirects": 0
+      },
+      "recovered": false
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "JOB-7",
+        "group": "large",
+        "priority": 0,
+        "url": "http://127.0.0.1:18081/observation/6",
+        "redirects": 0
+      },
+      "recovered": false
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "JOB-8",
+        "group": "large",
+        "priority": 1,
+        "url": "http://127.0.0.1:18082/observation/7",
+        "redirects": 0
+      },
+      "recovered": false
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "JOB-9",
+        "group": "large",
+        "priority": 2,
+        "url": "http://127.0.0.1:18081/observation/8",
+        "redirects": 0
+      },
+      "recovered": false
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "JOB-10",
+        "group": "small",
+        "priority": 0,
+        "url": "http://127.0.0.1:18082/observation/9",
+        "redirects": 0
+      },
+      "recovered": false
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "JOB-11",
+        "group": "small",
+        "priority": 1,
+        "url": "http://127.0.0.1:18081/observation/10",
+        "redirects": 0
+      },
+      "recovered": false
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "JOB-12",
+        "group": "small",
+        "priority": 2,
+        "url": "http://127.0.0.1:18082/observation/11",
+        "redirects": 0
+      },
+      "recovered": false
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "BLOCKED",
+        "group": "small",
+        "priority": 0,
+        "url": "http://127.0.0.1:18081/private/data",
+        "redirects": 0
+      },
+      "recovered": false
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "ROBOTS-SAME",
+        "group": "small",
+        "priority": 1,
+        "url": "http://127.0.0.1:18081/same",
+        "redirects": 0
+      },
+      "recovered": false
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "ROBOTS-PUBLIC",
+        "group": "small",
+        "priority": 1,
+        "url": "http://127.0.0.1:18081/private/public",
+        "redirects": 0
+      },
+      "recovered": false
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "REDIRECT",
+        "group": "small",
+        "priority": 1,
+        "url": "http://127.0.0.1:18081/redirect",
+        "redirects": 0
+      },
+      "recovered": false
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "FLOOD-1",
+        "group": "large",
+        "priority": 0,
+        "url": "http://127.0.0.1:18081/observation/f0",
+        "redirects": 0
+      },
+      "recovered": false
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "FLOOD-2",
+        "group": "large",
+        "priority": 0,
+        "url": "http://127.0.0.1:18082/observation/f1",
+        "redirects": 0
+      },
+      "recovered": false
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "FLOOD-3",
+        "group": "large",
+        "priority": 0,
+        "url": "http://127.0.0.1:18081/observation/f2",
+        "redirects": 0
+      },
+      "recovered": false
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "FLOOD-4",
+        "group": "large",
+        "priority": 0,
+        "url": "http://127.0.0.1:18082/observation/f3",
+        "redirects": 0
+      },
+      "recovered": false
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "FLOOD-5",
+        "group": "large",
+        "priority": 0,
+        "url": "http://127.0.0.1:18081/observation/f4",
+        "redirects": 0
+      },
+      "recovered": false
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "FLOOD-6",
+        "group": "large",
+        "priority": 0,
+        "url": "http://127.0.0.1:18082/observation/f5",
+        "redirects": 0
+      },
+      "recovered": false
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "FLOOD-7",
+        "group": "large",
+        "priority": 0,
+        "url": "http://127.0.0.1:18081/observation/f6",
+        "redirects": 0
+      },
+      "recovered": false
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "FLOOD-8",
+        "group": "large",
+        "priority": 0,
+        "url": "http://127.0.0.1:18082/observation/f7",
+        "redirects": 0
+      },
+      "recovered": false
+    },
+    {
+      "ts": 1794528000000,
+      "type": "scheduler-paused",
+      "reason": "drill-pause"
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-cancelled",
+      "jobId": "FLOOD-8",
+      "group": "large",
+      "phase": "queued",
+      "reason": "drill-cancel"
+    },
+    {
+      "ts": 1794528000000,
+      "type": "scheduler-resumed",
+      "reason": "drill-resume"
+    },
+    {
+      "ts": 1794528000000,
+      "type": "robots-fetched",
+      "origin": "http://127.0.0.1:18081",
+      "status": "failed",
+      "error": "HTTP 503",
+      "policy": "pause"
+    },
+    {
+      "ts": 1794528000000,
+      "type": "host-paused",
+      "origin": "http://127.0.0.1:18081",
+      "reason": "robots-fetch-failed:HTTP 503",
+      "retryAt": null
+    },
+    {
+      "ts": 1794528000000,
+      "type": "dispatch-skipped",
+      "jobId": "JOB-1",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "reason": "robots-paused",
+      "blockedUntil": null,
+      "checks": {
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": null
+        },
+        "cooldown": null,
+        "robots": "paused"
+      }
+    },
+    {
+      "ts": 1794528000000,
+      "type": "robots-fetched",
+      "origin": "http://127.0.0.1:18082",
+      "status": "ok",
+      "text": "User-agent: FieldArchive\nDisallow: /private\nAllow: /private/public\nDisallow: /same\nAllow: /same\n\nUser-agent: *\nDisallow: /closed\n"
+    },
+    {
+      "ts": 1794528000000,
+      "type": "lease-acquired",
+      "leaseId": "lease-1",
+      "jobId": "JOB-4",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "url": "http://127.0.0.1:18082/observation/3",
+      "attempt": 1,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 0,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": null
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      }
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "JOB-1",
+        "group": "large",
+        "priority": 0,
+        "url": "http://127.0.0.1:18081/observation/0",
+        "redirects": 0
+      },
+      "recovered": true
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "JOB-2",
+        "group": "large",
+        "priority": 1,
+        "url": "http://127.0.0.1:18082/observation/1",
+        "redirects": 0
+      },
+      "recovered": true
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "JOB-3",
+        "group": "large",
+        "priority": 2,
+        "url": "http://127.0.0.1:18081/observation/2",
+        "redirects": 0
+      },
+      "recovered": true
+    },
+    {
+      "ts": 1794528000000,
+      "type": "lease-recovered",
+      "jobId": "JOB-4",
+      "group": "large",
+      "previousLeaseId": "lease-1",
+      "previousAttempt": 1,
+      "crashedAt": 1794528000000
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "JOB-4",
+        "group": "large",
+        "priority": 0,
+        "url": "http://127.0.0.1:18082/observation/3",
+        "redirects": 0
+      },
+      "recovered": true
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "JOB-5",
+        "group": "large",
+        "priority": 1,
+        "url": "http://127.0.0.1:18081/observation/4",
+        "redirects": 0
+      },
+      "recovered": true
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "JOB-6",
+        "group": "large",
+        "priority": 2,
+        "url": "http://127.0.0.1:18082/observation/5",
+        "redirects": 0
+      },
+      "recovered": true
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "JOB-7",
+        "group": "large",
+        "priority": 0,
+        "url": "http://127.0.0.1:18081/observation/6",
+        "redirects": 0
+      },
+      "recovered": true
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "JOB-8",
+        "group": "large",
+        "priority": 1,
+        "url": "http://127.0.0.1:18082/observation/7",
+        "redirects": 0
+      },
+      "recovered": true
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "JOB-9",
+        "group": "large",
+        "priority": 2,
+        "url": "http://127.0.0.1:18081/observation/8",
+        "redirects": 0
+      },
+      "recovered": true
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "JOB-10",
+        "group": "small",
+        "priority": 0,
+        "url": "http://127.0.0.1:18082/observation/9",
+        "redirects": 0
+      },
+      "recovered": true
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "JOB-11",
+        "group": "small",
+        "priority": 1,
+        "url": "http://127.0.0.1:18081/observation/10",
+        "redirects": 0
+      },
+      "recovered": true
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "JOB-12",
+        "group": "small",
+        "priority": 2,
+        "url": "http://127.0.0.1:18082/observation/11",
+        "redirects": 0
+      },
+      "recovered": true
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "BLOCKED",
+        "group": "small",
+        "priority": 0,
+        "url": "http://127.0.0.1:18081/private/data",
+        "redirects": 0
+      },
+      "recovered": true
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "ROBOTS-SAME",
+        "group": "small",
+        "priority": 1,
+        "url": "http://127.0.0.1:18081/same",
+        "redirects": 0
+      },
+      "recovered": true
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "ROBOTS-PUBLIC",
+        "group": "small",
+        "priority": 1,
+        "url": "http://127.0.0.1:18081/private/public",
+        "redirects": 0
+      },
+      "recovered": true
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "REDIRECT",
+        "group": "small",
+        "priority": 1,
+        "url": "http://127.0.0.1:18081/redirect",
+        "redirects": 0
+      },
+      "recovered": true
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "FLOOD-1",
+        "group": "large",
+        "priority": 0,
+        "url": "http://127.0.0.1:18081/observation/f0",
+        "redirects": 0
+      },
+      "recovered": true
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "FLOOD-2",
+        "group": "large",
+        "priority": 0,
+        "url": "http://127.0.0.1:18082/observation/f1",
+        "redirects": 0
+      },
+      "recovered": true
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "FLOOD-3",
+        "group": "large",
+        "priority": 0,
+        "url": "http://127.0.0.1:18081/observation/f2",
+        "redirects": 0
+      },
+      "recovered": true
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "FLOOD-4",
+        "group": "large",
+        "priority": 0,
+        "url": "http://127.0.0.1:18082/observation/f3",
+        "redirects": 0
+      },
+      "recovered": true
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "FLOOD-5",
+        "group": "large",
+        "priority": 0,
+        "url": "http://127.0.0.1:18081/observation/f4",
+        "redirects": 0
+      },
+      "recovered": true
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "FLOOD-6",
+        "group": "large",
+        "priority": 0,
+        "url": "http://127.0.0.1:18082/observation/f5",
+        "redirects": 0
+      },
+      "recovered": true
+    },
+    {
+      "ts": 1794528000000,
+      "type": "job-enqueued",
+      "job": {
+        "id": "FLOOD-7",
+        "group": "large",
+        "priority": 0,
+        "url": "http://127.0.0.1:18081/observation/f6",
+        "redirects": 0
+      },
+      "recovered": true
+    },
+    {
+      "ts": 1794528000000,
+      "type": "robots-fetch-started",
+      "origin": "http://127.0.0.1:18081",
+      "identity": "FieldArchive"
+    },
+    {
+      "ts": 1794528000000,
+      "type": "robots-fetched",
+      "origin": "http://127.0.0.1:18081",
+      "status": "ok",
+      "text": "User-agent: FieldArchive\nDisallow: /private\nAllow: /private/public\nDisallow: /same\nAllow: /same\n\nUser-agent: *\nDisallow: /closed\n"
+    },
+    {
+      "ts": 1794528000000,
+      "type": "lease-acquired",
+      "leaseId": "lease-2",
+      "jobId": "JOB-1",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "url": "http://127.0.0.1:18081/observation/0",
+      "attempt": 1,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 0,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": null
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      }
+    },
+    {
+      "ts": 1794528000000,
+      "type": "dispatch-skipped",
+      "jobId": "JOB-10",
+      "group": "small",
+      "origin": "http://127.0.0.1:18082",
+      "reason": "host-min-interval",
+      "blockedUntil": 1794528000100,
+      "checks": {
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528000000
+        },
+        "cooldown": null,
+        "robots": "ready"
+      }
+    },
+    {
+      "ts": 1794528000000,
+      "type": "dispatch-skipped",
+      "jobId": "BLOCKED",
+      "group": "small",
+      "origin": "http://127.0.0.1:18081",
+      "reason": "host-min-interval",
+      "blockedUntil": 1794528000100,
+      "checks": {
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 1
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528000000
+        },
+        "cooldown": null,
+        "robots": "ready"
+      }
+    },
+    {
+      "ts": 1794528000100,
+      "type": "rule-denied",
+      "jobId": "BLOCKED",
+      "group": "small",
+      "origin": "http://127.0.0.1:18081",
+      "url": "http://127.0.0.1:18081/private/data",
+      "identity": "FieldArchive",
+      "reason": "disallow:/private",
+      "rule": {
+        "action": "disallow",
+        "path": "/private"
+      }
+    },
+    {
+      "ts": 1794528000100,
+      "type": "lease-acquired",
+      "leaseId": "lease-3",
+      "jobId": "JOB-11",
+      "group": "small",
+      "origin": "http://127.0.0.1:18081",
+      "url": "http://127.0.0.1:18081/observation/10",
+      "attempt": 1,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 1,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 1
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528000000
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      }
+    },
+    {
+      "ts": 1794528000100,
+      "type": "lease-acquired",
+      "leaseId": "lease-4",
+      "jobId": "JOB-4",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "url": "http://127.0.0.1:18082/observation/3",
+      "attempt": 1,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 2,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528000000
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      }
+    },
+    {
+      "ts": 1794528009950,
+      "type": "cooldown",
+      "origin": "http://127.0.0.1:18081",
+      "statusCode": 429,
+      "retryAfter": "Fri, 13 Nov 2026 00:00:02 GMT",
+      "kind": "http-date",
+      "until": 1794528002000,
+      "reason": "HTTP 429 Retry-After"
+    },
+    {
+      "ts": 1794528009950,
+      "type": "lease-released",
+      "leaseId": "lease-2",
+      "jobId": "JOB-1",
+      "outcome": "cooldown-retry"
+    },
+    {
+      "ts": 1794528009950,
+      "type": "retry-scheduled",
+      "jobId": "JOB-1",
+      "group": "large",
+      "attempt": 1,
+      "nextAttempt": 2,
+      "notBefore": 1794528010063,
+      "delayMs": 113,
+      "reason": "HTTP 429",
+      "statusCode": 429,
+      "leaseId": "lease-2"
+    },
+    {
+      "ts": 1794528010063,
+      "type": "lease-acquired",
+      "leaseId": "lease-5",
+      "jobId": "ROBOTS-SAME",
+      "group": "small",
+      "origin": "http://127.0.0.1:18081",
+      "url": "http://127.0.0.1:18081/same",
+      "attempt": 1,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 2,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 1
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528000100
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "allow:/same"
+        }
+      }
+    },
+    {
+      "ts": 1794528019913,
+      "type": "result-recorded",
+      "leaseId": "lease-4",
+      "jobId": "JOB-4",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "finalUrl": "http://127.0.0.1:18082/observation/3",
+      "attempt": 1,
+      "statusCode": 200,
+      "result": {
+        "host": "beta",
+        "path": "/observation/3",
+        "value": 7
+      }
+    },
+    {
+      "ts": 1794528019913,
+      "type": "lease-released",
+      "leaseId": "lease-4",
+      "jobId": "JOB-4",
+      "outcome": "success"
+    },
+    {
+      "ts": 1794528019913,
+      "type": "result-recorded",
+      "leaseId": "lease-3",
+      "jobId": "JOB-11",
+      "group": "small",
+      "origin": "http://127.0.0.1:18081",
+      "finalUrl": "http://127.0.0.1:18081/observation/10",
+      "attempt": 1,
+      "statusCode": 200,
+      "result": {
+        "host": "alpha",
+        "path": "/observation/10",
+        "value": 7
+      }
+    },
+    {
+      "ts": 1794528019913,
+      "type": "lease-released",
+      "leaseId": "lease-3",
+      "jobId": "JOB-11",
+      "outcome": "success"
+    },
+    {
+      "ts": 1794528019913,
+      "type": "result-recorded",
+      "leaseId": "lease-5",
+      "jobId": "ROBOTS-SAME",
+      "group": "small",
+      "origin": "http://127.0.0.1:18081",
+      "finalUrl": "http://127.0.0.1:18081/same",
+      "attempt": 1,
+      "statusCode": 200,
+      "result": {
+        "host": "alpha",
+        "path": "/same",
+        "value": 7
+      }
+    },
+    {
+      "ts": 1794528019913,
+      "type": "lease-released",
+      "leaseId": "lease-5",
+      "jobId": "ROBOTS-SAME",
+      "outcome": "success"
+    },
+    {
+      "ts": 1794528020163,
+      "type": "lease-acquired",
+      "leaseId": "lease-6",
+      "jobId": "JOB-7",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "url": "http://127.0.0.1:18081/observation/6",
+      "attempt": 1,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 0,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528010063
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      }
+    },
+    {
+      "ts": 1794528020163,
+      "type": "dispatch-skipped",
+      "jobId": "ROBOTS-PUBLIC",
+      "group": "small",
+      "origin": "http://127.0.0.1:18081",
+      "reason": "host-min-interval",
+      "blockedUntil": 1794528020263,
+      "checks": {
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 1
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528020163
+        },
+        "cooldown": null,
+        "robots": "ready"
+      }
+    },
+    {
+      "ts": 1794528020163,
+      "type": "lease-acquired",
+      "leaseId": "lease-7",
+      "jobId": "JOB-12",
+      "group": "small",
+      "origin": "http://127.0.0.1:18082",
+      "url": "http://127.0.0.1:18082/observation/11",
+      "attempt": 1,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 1,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528000100
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      }
+    },
+    {
+      "ts": 1794528020263,
+      "type": "lease-acquired",
+      "leaseId": "lease-8",
+      "jobId": "FLOOD-1",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "url": "http://127.0.0.1:18081/observation/f0",
+      "attempt": 1,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 2,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 1
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528020163
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      }
+    },
+    {
+      "ts": 1794528029863,
+      "type": "result-recorded",
+      "leaseId": "lease-6",
+      "jobId": "JOB-7",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "finalUrl": "http://127.0.0.1:18081/observation/6",
+      "attempt": 1,
+      "statusCode": 200,
+      "result": {
+        "host": "alpha",
+        "path": "/observation/6",
+        "value": 7
+      }
+    },
+    {
+      "ts": 1794528029863,
+      "type": "lease-released",
+      "leaseId": "lease-6",
+      "jobId": "JOB-7",
+      "outcome": "success"
+    },
+    {
+      "ts": 1794528029863,
+      "type": "result-recorded",
+      "leaseId": "lease-7",
+      "jobId": "JOB-12",
+      "group": "small",
+      "origin": "http://127.0.0.1:18082",
+      "finalUrl": "http://127.0.0.1:18082/observation/11",
+      "attempt": 1,
+      "statusCode": 200,
+      "result": {
+        "host": "beta",
+        "path": "/observation/11",
+        "value": 7
+      }
+    },
+    {
+      "ts": 1794528029863,
+      "type": "lease-released",
+      "leaseId": "lease-7",
+      "jobId": "JOB-12",
+      "outcome": "success"
+    },
+    {
+      "ts": 1794528029863,
+      "type": "result-recorded",
+      "leaseId": "lease-8",
+      "jobId": "FLOOD-1",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "finalUrl": "http://127.0.0.1:18081/observation/f0",
+      "attempt": 1,
+      "statusCode": 200,
+      "result": {
+        "host": "alpha",
+        "path": "/observation/f0",
+        "value": 7
+      }
+    },
+    {
+      "ts": 1794528029863,
+      "type": "lease-released",
+      "leaseId": "lease-8",
+      "jobId": "FLOOD-1",
+      "outcome": "success"
+    },
+    {
+      "ts": 1794528030113,
+      "type": "lease-acquired",
+      "leaseId": "lease-9",
+      "jobId": "JOB-10",
+      "group": "small",
+      "origin": "http://127.0.0.1:18082",
+      "url": "http://127.0.0.1:18082/observation/9",
+      "attempt": 1,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 0,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528020163
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      }
+    },
+    {
+      "ts": 1794528030113,
+      "type": "dispatch-skipped",
+      "jobId": "FLOOD-2",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "reason": "host-min-interval",
+      "blockedUntil": 1794528030213,
+      "checks": {
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 1
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528030113
+        },
+        "cooldown": null,
+        "robots": "ready"
+      }
+    },
+    {
+      "ts": 1794528030113,
+      "type": "lease-acquired",
+      "leaseId": "lease-10",
+      "jobId": "FLOOD-3",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "url": "http://127.0.0.1:18081/observation/f2",
+      "attempt": 1,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 1,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528020263
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      }
+    },
+    {
+      "ts": 1794528030213,
+      "type": "lease-acquired",
+      "leaseId": "lease-11",
+      "jobId": "ROBOTS-PUBLIC",
+      "group": "small",
+      "origin": "http://127.0.0.1:18081",
+      "url": "http://127.0.0.1:18081/private/public",
+      "attempt": 1,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 2,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 1
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528030113
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "allow:/private/public"
+        }
+      }
+    },
+    {
+      "ts": 1794528049813,
+      "type": "result-recorded",
+      "leaseId": "lease-9",
+      "jobId": "JOB-10",
+      "group": "small",
+      "origin": "http://127.0.0.1:18082",
+      "finalUrl": "http://127.0.0.1:18082/observation/9",
+      "attempt": 1,
+      "statusCode": 200,
+      "result": {
+        "host": "beta",
+        "path": "/observation/9",
+        "value": 7
+      }
+    },
+    {
+      "ts": 1794528049813,
+      "type": "lease-released",
+      "leaseId": "lease-9",
+      "jobId": "JOB-10",
+      "outcome": "success"
+    },
+    {
+      "ts": 1794528049813,
+      "type": "result-recorded",
+      "leaseId": "lease-10",
+      "jobId": "FLOOD-3",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "finalUrl": "http://127.0.0.1:18081/observation/f2",
+      "attempt": 1,
+      "statusCode": 200,
+      "result": {
+        "host": "alpha",
+        "path": "/observation/f2",
+        "value": 7
+      }
+    },
+    {
+      "ts": 1794528049813,
+      "type": "lease-released",
+      "leaseId": "lease-10",
+      "jobId": "FLOOD-3",
+      "outcome": "success"
+    },
+    {
+      "ts": 1794528049813,
+      "type": "result-recorded",
+      "leaseId": "lease-11",
+      "jobId": "ROBOTS-PUBLIC",
+      "group": "small",
+      "origin": "http://127.0.0.1:18081",
+      "finalUrl": "http://127.0.0.1:18081/private/public",
+      "attempt": 1,
+      "statusCode": 200,
+      "result": {
+        "host": "alpha",
+        "path": "/private/public",
+        "value": 7
+      }
+    },
+    {
+      "ts": 1794528049813,
+      "type": "lease-released",
+      "leaseId": "lease-11",
+      "jobId": "ROBOTS-PUBLIC",
+      "outcome": "success"
+    },
+    {
+      "ts": 1794528050063,
+      "type": "lease-acquired",
+      "leaseId": "lease-12",
+      "jobId": "FLOOD-4",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "url": "http://127.0.0.1:18082/observation/f3",
+      "attempt": 1,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 0,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528030113
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      }
+    },
+    {
+      "ts": 1794528050063,
+      "type": "lease-acquired",
+      "leaseId": "lease-13",
+      "jobId": "REDIRECT",
+      "group": "small",
+      "origin": "http://127.0.0.1:18081",
+      "url": "http://127.0.0.1:18081/redirect",
+      "attempt": 1,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 1,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528030213
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      }
+    },
+    {
+      "ts": 1794528050163,
+      "type": "lease-acquired",
+      "leaseId": "lease-14",
+      "jobId": "FLOOD-5",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "url": "http://127.0.0.1:18081/observation/f4",
+      "attempt": 1,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 2,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 1
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528050063
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      }
+    },
+    {
+      "ts": 1794528059763,
+      "type": "result-recorded",
+      "leaseId": "lease-12",
+      "jobId": "FLOOD-4",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "finalUrl": "http://127.0.0.1:18082/observation/f3",
+      "attempt": 1,
+      "statusCode": 200,
+      "result": {
+        "host": "beta",
+        "path": "/observation/f3",
+        "value": 7
+      }
+    },
+    {
+      "ts": 1794528059763,
+      "type": "lease-released",
+      "leaseId": "lease-12",
+      "jobId": "FLOOD-4",
+      "outcome": "success"
+    },
+    {
+      "ts": 1794528059763,
+      "type": "lease-released",
+      "leaseId": "lease-13",
+      "jobId": "REDIRECT",
+      "outcome": "redirect",
+      "toUrl": "http://127.0.0.1:18082/observation/9"
+    },
+    {
+      "ts": 1794528059763,
+      "type": "redirect-requeued",
+      "jobId": "REDIRECT",
+      "group": "small",
+      "fromUrl": "http://127.0.0.1:18081/redirect",
+      "toUrl": "http://127.0.0.1:18082/observation/9",
+      "fromOrigin": "http://127.0.0.1:18081",
+      "toOrigin": "http://127.0.0.1:18082",
+      "hops": null
+    },
+    {
+      "ts": 1794528059763,
+      "type": "result-recorded",
+      "leaseId": "lease-14",
+      "jobId": "FLOOD-5",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "finalUrl": "http://127.0.0.1:18081/observation/f4",
+      "attempt": 1,
+      "statusCode": 200,
+      "result": {
+        "host": "alpha",
+        "path": "/observation/f4",
+        "value": 7
+      }
+    },
+    {
+      "ts": 1794528059763,
+      "type": "lease-released",
+      "leaseId": "lease-14",
+      "jobId": "FLOOD-5",
+      "outcome": "success"
+    },
+    {
+      "ts": 1794528060013,
+      "type": "lease-acquired",
+      "leaseId": "lease-15",
+      "jobId": "REDIRECT",
+      "group": "small",
+      "origin": "http://127.0.0.1:18082",
+      "url": "http://127.0.0.1:18082/observation/9",
+      "attempt": 2,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 0,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528050063
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      }
+    },
+    {
+      "ts": 1794528060013,
+      "type": "dispatch-skipped",
+      "jobId": "FLOOD-6",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "reason": "host-min-interval",
+      "blockedUntil": 1794528060113,
+      "checks": {
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 1
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528060013
+        },
+        "cooldown": null,
+        "robots": "ready"
+      }
+    },
+    {
+      "ts": 1794528060013,
+      "type": "lease-acquired",
+      "leaseId": "lease-16",
+      "jobId": "FLOOD-7",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "url": "http://127.0.0.1:18081/observation/f6",
+      "attempt": 1,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 1,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528050163
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      }
+    },
+    {
+      "ts": 1794528060113,
+      "type": "lease-acquired",
+      "leaseId": "lease-17",
+      "jobId": "JOB-1",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "url": "http://127.0.0.1:18081/observation/0",
+      "attempt": 2,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 2,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 1
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528060013
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      }
+    },
+    {
+      "ts": 1794528079713,
+      "type": "result-recorded",
+      "leaseId": "lease-15",
+      "jobId": "REDIRECT",
+      "group": "small",
+      "origin": "http://127.0.0.1:18082",
+      "finalUrl": "http://127.0.0.1:18082/observation/9",
+      "attempt": 2,
+      "statusCode": 200,
+      "result": {
+        "host": "beta",
+        "path": "/observation/9",
+        "value": 7
+      }
+    },
+    {
+      "ts": 1794528079713,
+      "type": "lease-released",
+      "leaseId": "lease-15",
+      "jobId": "REDIRECT",
+      "outcome": "success"
+    },
+    {
+      "ts": 1794528079713,
+      "type": "result-recorded",
+      "leaseId": "lease-16",
+      "jobId": "FLOOD-7",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "finalUrl": "http://127.0.0.1:18081/observation/f6",
+      "attempt": 1,
+      "statusCode": 200,
+      "result": {
+        "host": "alpha",
+        "path": "/observation/f6",
+        "value": 7
+      }
+    },
+    {
+      "ts": 1794528079713,
+      "type": "lease-released",
+      "leaseId": "lease-16",
+      "jobId": "FLOOD-7",
+      "outcome": "success"
+    },
+    {
+      "ts": 1794528079713,
+      "type": "result-recorded",
+      "leaseId": "lease-17",
+      "jobId": "JOB-1",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "finalUrl": "http://127.0.0.1:18081/observation/0",
+      "attempt": 2,
+      "statusCode": 200,
+      "result": {
+        "host": "alpha",
+        "path": "/observation/0",
+        "value": 7
+      }
+    },
+    {
+      "ts": 1794528079713,
+      "type": "lease-released",
+      "leaseId": "lease-17",
+      "jobId": "JOB-1",
+      "outcome": "success"
+    },
+    {
+      "ts": 1794528079963,
+      "type": "lease-acquired",
+      "leaseId": "lease-18",
+      "jobId": "JOB-2",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "url": "http://127.0.0.1:18082/observation/1",
+      "attempt": 1,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 0,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528060013
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      }
+    },
+    {
+      "ts": 1794528080063,
+      "type": "lease-acquired",
+      "leaseId": "lease-19",
+      "jobId": "JOB-5",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "url": "http://127.0.0.1:18081/observation/4",
+      "attempt": 1,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 1,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528060113
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      }
+    },
+    {
+      "ts": 1794528080163,
+      "type": "lease-acquired",
+      "leaseId": "lease-20",
+      "jobId": "JOB-8",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "url": "http://127.0.0.1:18082/observation/7",
+      "attempt": 1,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 2,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 1
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528079963
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      }
+    },
+    {
+      "ts": 1794528099513,
+      "type": "result-recorded",
+      "leaseId": "lease-20",
+      "jobId": "JOB-8",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "finalUrl": "http://127.0.0.1:18082/observation/7",
+      "attempt": 1,
+      "statusCode": 200,
+      "result": {
+        "host": "beta",
+        "path": "/observation/7",
+        "value": 7
+      }
+    },
+    {
+      "ts": 1794528099513,
+      "type": "lease-released",
+      "leaseId": "lease-20",
+      "jobId": "JOB-8",
+      "outcome": "success"
+    },
+    {
+      "ts": 1794528099513,
+      "type": "result-recorded",
+      "leaseId": "lease-18",
+      "jobId": "JOB-2",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "finalUrl": "http://127.0.0.1:18082/observation/1",
+      "attempt": 1,
+      "statusCode": 200,
+      "result": {
+        "host": "beta",
+        "path": "/observation/1",
+        "value": 7
+      }
+    },
+    {
+      "ts": 1794528099513,
+      "type": "lease-released",
+      "leaseId": "lease-18",
+      "jobId": "JOB-2",
+      "outcome": "success"
+    },
+    {
+      "ts": 1794528099513,
+      "type": "result-recorded",
+      "leaseId": "lease-19",
+      "jobId": "JOB-5",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "finalUrl": "http://127.0.0.1:18081/observation/4",
+      "attempt": 1,
+      "statusCode": 200,
+      "result": {
+        "host": "alpha",
+        "path": "/observation/4",
+        "value": 7
+      }
+    },
+    {
+      "ts": 1794528099513,
+      "type": "lease-released",
+      "leaseId": "lease-19",
+      "jobId": "JOB-5",
+      "outcome": "success"
+    },
+    {
+      "ts": 1794528099763,
+      "type": "lease-acquired",
+      "leaseId": "lease-21",
+      "jobId": "JOB-3",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "url": "http://127.0.0.1:18081/observation/2",
+      "attempt": 1,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 0,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528080063
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      }
+    },
+    {
+      "ts": 1794528099863,
+      "type": "lease-acquired",
+      "leaseId": "lease-22",
+      "jobId": "JOB-6",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "url": "http://127.0.0.1:18082/observation/5",
+      "attempt": 1,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 1,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528080163
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      }
+    },
+    {
+      "ts": 1794528099963,
+      "type": "lease-acquired",
+      "leaseId": "lease-23",
+      "jobId": "JOB-9",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "url": "http://127.0.0.1:18081/observation/8",
+      "attempt": 1,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 2,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 1
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528099763
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      }
+    },
+    {
+      "ts": 1794528119313,
+      "type": "result-recorded",
+      "leaseId": "lease-21",
+      "jobId": "JOB-3",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "finalUrl": "http://127.0.0.1:18081/observation/2",
+      "attempt": 1,
+      "statusCode": 200,
+      "result": {
+        "host": "alpha",
+        "path": "/observation/2",
+        "value": 7
+      }
+    },
+    {
+      "ts": 1794528119313,
+      "type": "lease-released",
+      "leaseId": "lease-21",
+      "jobId": "JOB-3",
+      "outcome": "success"
+    },
+    {
+      "ts": 1794528119313,
+      "type": "result-recorded",
+      "leaseId": "lease-22",
+      "jobId": "JOB-6",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "finalUrl": "http://127.0.0.1:18082/observation/5",
+      "attempt": 1,
+      "statusCode": 200,
+      "result": {
+        "host": "beta",
+        "path": "/observation/5",
+        "value": 7
+      }
+    },
+    {
+      "ts": 1794528119313,
+      "type": "lease-released",
+      "leaseId": "lease-22",
+      "jobId": "JOB-6",
+      "outcome": "success"
+    },
+    {
+      "ts": 1794528119313,
+      "type": "result-recorded",
+      "leaseId": "lease-23",
+      "jobId": "JOB-9",
+      "group": "large",
+      "origin": "http://127.0.0.1:18081",
+      "finalUrl": "http://127.0.0.1:18081/observation/8",
+      "attempt": 1,
+      "statusCode": 200,
+      "result": {
+        "host": "alpha",
+        "path": "/observation/8",
+        "value": 7
+      }
+    },
+    {
+      "ts": 1794528119313,
+      "type": "lease-released",
+      "leaseId": "lease-23",
+      "jobId": "JOB-9",
+      "outcome": "success"
+    },
+    {
+      "ts": 1794528119563,
+      "type": "lease-acquired",
+      "leaseId": "lease-24",
+      "jobId": "FLOOD-2",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "url": "http://127.0.0.1:18082/observation/f1",
+      "attempt": 1,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 0,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 0
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528099863
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      }
+    },
+    {
+      "ts": 1794528119663,
+      "type": "lease-acquired",
+      "leaseId": "lease-25",
+      "jobId": "FLOOD-6",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "url": "http://127.0.0.1:18082/observation/f5",
+      "attempt": 1,
+      "decision": "dispatched",
+      "reason": "admitted",
+      "checks": {
+        "global": {
+          "limit": 3,
+          "inflight": 1,
+          "minIntervalMs": 0
+        },
+        "hostConcurrency": {
+          "limit": 2,
+          "inflight": 1
+        },
+        "minIntervalMs": {
+          "limit": 100,
+          "lastDispatchAt": 1794528119563
+        },
+        "cooldown": null,
+        "robots": {
+          "status": "ready",
+          "verdict": "no-rule-allow"
+        }
+      }
+    },
+    {
+      "ts": 1794528119663,
+      "type": "result-recorded",
+      "leaseId": "lease-24",
+      "jobId": "FLOOD-2",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "finalUrl": "http://127.0.0.1:18082/observation/f1",
+      "attempt": 1,
+      "statusCode": 200,
+      "result": {
+        "host": "beta",
+        "path": "/observation/f1",
+        "value": 7
+      }
+    },
+    {
+      "ts": 1794528119663,
+      "type": "lease-released",
+      "leaseId": "lease-24",
+      "jobId": "FLOOD-2",
+      "outcome": "success"
+    },
+    {
+      "ts": 1794528119663,
+      "type": "result-recorded",
+      "leaseId": "lease-25",
+      "jobId": "FLOOD-6",
+      "group": "large",
+      "origin": "http://127.0.0.1:18082",
+      "finalUrl": "http://127.0.0.1:18082/observation/f5",
+      "attempt": 1,
+      "statusCode": 200,
+      "result": {
+        "host": "beta",
+        "path": "/observation/f5",
+        "value": 7
+      }
+    },
+    {
+      "ts": 1794528119663,
+      "type": "lease-released",
+      "leaseId": "lease-25",
+      "jobId": "FLOOD-6",
+      "outcome": "success"
+    }
+  ]
+}

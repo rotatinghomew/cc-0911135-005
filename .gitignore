@@ -7,3 +7,5 @@ sealed/
 *.part
 playwright-report/
 test-results/
+dispatch-ledger.json
+var/report-*.json

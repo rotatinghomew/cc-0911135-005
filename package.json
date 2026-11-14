@@ -12,6 +12,7 @@
     "build": "node tools/check.mjs",
     "test": "node --test test/*.test.mjs",
     "demo": "node tools/demo.mjs",
+    "drill": "node tools/drill.mjs",
     "verify": "node test/verify.mjs"
   }
 }
